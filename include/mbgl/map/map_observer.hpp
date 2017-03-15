@@ -21,6 +21,12 @@ public:
         Full
     };
 
+    enum class ErrorType : uint32_t {
+       ParseStyle,
+       NotFound,
+       LoadingStyle
+    };
+
     virtual void onCameraWillChange(CameraChangeMode) {}
     virtual void onCameraIsChanging() {}
     virtual void onCameraDidChange(CameraChangeMode) {}
