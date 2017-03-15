@@ -42,8 +42,8 @@ static const char* releasedMessage() {
 NodeBackend::NodeBackend()
     : HeadlessBackend(sharedDisplay()) {}
 
-void NodeBackend::onDidFailLoadingMap() {
-    throw std::runtime_error("Requires a map style to be a valid style JSON");
+void NodeBackend::onDidFailLoadingMap(mbgl::MapObserver::ErrorType, const std::string& message) {
+    throw std::runtime_error(message);
 }
 
 void NodeMap::Init(v8::Local<v8::Object> target) {

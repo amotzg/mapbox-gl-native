@@ -18,7 +18,7 @@ namespace node_mbgl {
 class NodeBackend : public mbgl::HeadlessBackend {
 public:
     NodeBackend();
-    void onDidFailLoadingMap() final;
+    void onDidFailLoadingMap(mbgl::MapObserver::ErrorType, const std::string& message) final;
 };
 
 class NodeMap : public Nan::ObjectWrap,
