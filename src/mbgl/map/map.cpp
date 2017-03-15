@@ -1101,8 +1101,8 @@ void Map::Impl::onStyleLoaded() {
     observer.onDidFinishLoadingStyle();
 }
 
-void Map::Impl::onStyleError(MapObserver::ErrorType /* type */, const std::string& /* message */) {
-    observer.onDidFailLoadingMap();
+void Map::Impl::onStyleError(MapObserver::ErrorType type, const std::string& message) {
+    observer.onDidFailLoadingMap(type, message);
 }
 
 void Map::Impl::onResourceError(std::exception_ptr error) {

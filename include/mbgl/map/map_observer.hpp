@@ -1,6 +1,7 @@
 #pragma once
 
 #include <cstdint>
+#include <string>
 
 namespace mbgl {
 
@@ -32,7 +33,7 @@ public:
     virtual void onCameraDidChange(CameraChangeMode) {}
     virtual void onWillStartLoadingMap() {}
     virtual void onDidFinishLoadingMap() {}
-    virtual void onDidFailLoadingMap() {}
+    virtual void onDidFailLoadingMap(ErrorType, const std::string& /* message */) {}
     virtual void onWillStartRenderingFrame() {}
     virtual void onDidFinishRenderingFrame(RenderMode) {}
     virtual void onWillStartRenderingMap() {}
