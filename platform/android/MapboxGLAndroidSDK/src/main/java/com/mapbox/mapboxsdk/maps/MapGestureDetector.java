@@ -92,6 +92,10 @@ final class MapGestureDetector {
     this.focalPoint = focalPoint;
   }
 
+  PointF getFocalPoint(){
+    return focalPoint;
+  }
+
   /**
    * Given coordinates from a gesture, use the current projection to translate it into
    * a Location object.
@@ -633,34 +637,6 @@ final class MapGestureDetector {
       dragStarted = true;
 
       return true;
-    }
-  }
-
-  // This class handles input events from the zoom control buttons
-  // Zoom controls allow single touch only devices to zoom in and out
-  private static class OnZoomListener implements ZoomButtonsController.OnZoomListener {
-
-    private UiSettings uiSettings;
-    private Transform transform;
-
-    OnZoomListener(UiSettings uiSettings, Transform transform) {
-      this.uiSettings = uiSettings;
-      this.transform = transform;
-    }
-
-    // Not used
-    @Override
-    public void onVisibilityChanged(boolean visible) {
-      // Ignore
-    }
-
-    // Called when user pushes a zoom button
-    @Override
-    public void onZoom(boolean zoomIn) {
-      if (!uiSettings.isZoomGesturesEnabled()) {
-        return;
-      }
-      transform.zoom(zoomIn);
     }
   }
 
